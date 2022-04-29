@@ -58,6 +58,18 @@ public class Company{
     
     public String showBatteriesInfo() {
     	String str = "";
+        for (int i = 0; i < MAX_BATTERIES ; i++) {
+            if(batteries[i] instanceof RechargeableBattery){
+                str+= "The batery it's of type Rechargable \n"+
+                "\n Name"+ ((RechargeableBattery)batteries[i]).getName()+
+                "\n Costo de vida util "+  ((RechargeableBattery)batteries[i]).calculateUsefulLifeCost();
+            }
+            if(batteries[i] instanceof Battery){
+                str+= "The batery it's of type Normal \n"+
+                "\n Name"+ ((Battery)batteries[i]).getName()+
+                "\n Costo de vida util "+ 0;
+            }
+        }        
         
     	return str;
     }
